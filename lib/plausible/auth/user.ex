@@ -28,7 +28,7 @@ defmodule Plausible.Auth.User do
     user
     |> cast(attrs, [:email, :name])
     |> validate_required([:email, :name])
-    |> change(trial_expiry_date: Timex.today() |> Timex.shift(days: 30))
+    |> change(trial_expiry_date: Timex.today() |> Timex.shift(years: 100))
     |> unique_constraint(:email)
   end
 
