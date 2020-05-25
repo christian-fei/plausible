@@ -45,6 +45,10 @@ config :plausible, Plausible.Repo,
 config :plausible, Plausible.Mailer,
   adapter: Bamboo.LocalAdapter
 
+config :plausible, :google,
+  client_id: System.get_env("GOOGLE_CLIENT_ID"),
+  client_secret: System.get_env("GOOGLE_CLIENT_SECRET")
+
 if File.exists?("config/dev.secret.exs") do
   import_config "dev.secret.exs"
 end
